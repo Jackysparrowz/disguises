@@ -1,4 +1,6 @@
-#All running functions
+#all running functions
+#@s - console
+#called by repeating command block at 0 0 1
 
 function disguises:required/adddisguises
 

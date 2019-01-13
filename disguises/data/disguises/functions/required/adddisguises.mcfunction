@@ -1,3 +1,7 @@
+#adds disguises
+#@s - console
+#called by disguises:core
+
 #Disguise on
 scoreboard players add @e[scores={disguise=1..5}] disguise 1
 
@@ -45,7 +49,7 @@ scoreboard players set @a[scores={disguise=3}] disguise 0
 	execute as @a[scores={disguise=2,disguiseType=37}] run summon minecraft:zombie ~2 ~ ~ {OnGround:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Tags:["disguiseMob"],Team:"disguiseMob",ArmorItems:[{},{},{},{id:"minecraft:stone_button",Count:1b}]}
 	execute as @a[scores={disguise=2,disguiseType=38}] run summon minecraft:zombie_pigman ~2 ~ ~ {OnGround:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Tags:["disguiseMob"],Team:"disguiseMob",HandItems:[{id:"minecraft:golden_sword",Count:1b}]}
 	execute as @a[scores={disguise=2,disguiseType=39}] run summon minecraft:zombie_villager ~2 ~ ~ {OnGround:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Tags:["disguiseMob"],Team:"disguiseMob",ArmorItems:[{},{},{},{id:"minecraft:stone_button",Count:1b}]}
-	
+
 #Name disguise
 	data merge block 0 0 0 {Text1:"{\"selector\":\"@a[scores={disguise=2}]\"}"}
 
@@ -56,5 +60,5 @@ scoreboard players set @a[scores={disguise=3}] disguise 0
 	tag @e[tag=disguiseMob,scores={ID=0..}] add ID
 
 	effect give @a[tag=disguise] minecraft:invisibility 1 0 true
-	
+
 	tellraw @a[scores={disguise=2}] ["",{"text":"Disguised!","color":"aqua"}]

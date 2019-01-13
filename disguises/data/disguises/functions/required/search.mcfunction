@@ -1,4 +1,6 @@
-#Check if player logout
+#check if a player logs out
+#@s - @e[tag=disguiseMob,tag=ID]
+#called by disguises:core
 
 scoreboard players operation #searchCurrent ID = @s ID
 

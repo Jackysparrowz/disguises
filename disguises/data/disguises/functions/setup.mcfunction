@@ -1,4 +1,6 @@
-#Setup disguises
+#setup disguises
+#@s - @a[gamemode=creative,tag=setupDisguises]
+#called by disguises:loop
 
 #Forceload sign chunk
 tellraw @a[gamemode=creative,tag=!setupDisguises] ["",{"text":"Click ","color":"aqua"},{"text":"this","color":"dark_aqua","underlined":true,"clickEvent":{"action":"run_command","value":"/forceload add 0 0"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Click first","color":"white"}]}}},{"text":" first, then click ","color":"aqua","underlined":false},{"text":"this","color":"dark_aqua","underlined":true,"clickEvent":{"action":"run_command","value":"/tag @p add setupDisguises"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Click second","color":"white"}]}}},{"text":" to setup the disguises datapack!","color":"aqua","underlined":false}]

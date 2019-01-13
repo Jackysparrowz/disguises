@@ -1,9 +1,11 @@
-#Commands for book
-	
+#commands for settings book
+#@s - console
+#called by disguises:core
+
 	#Gamerule
 execute as @a[nbt={SelectedItem:{id:"minecraft:written_book",Count:1b,tag:{title:"Disguises",author:"JunXz"}}}] run gamerule sendCommandFeedback false
 execute as @a unless entity @s[nbt={SelectedItem:{id:"minecraft:written_book",Count:1b,tag:{title:"Disguises",author:"JunXz"}}}] run gamerule sendCommandFeedback true
-	
+
 	#Change book
 tag @a[scores={bookTrigger=1..}] add changebook
 tag @a[nbt={SelectedItem:{id:"minecraft:written_book",Count:1b,tag:{title:"Disguises",author:"JunXz"}}}] add changebook2
@@ -41,7 +43,7 @@ tellraw @a[scores={bookTrigger=6}] ["",{"text":"Hiding name.","color":"dark_aqua
 	scoreboard players set @a[tag=noDisguiseType] bookTrigger 0
 	scoreboard players set @a[scores={bookTrigger=11}] disguiseType 1
 	tellraw @a[scores={bookTrigger=11}] ["",{"text":"Selected ","color":"aqua"},{"text":"Blaze","color":"dark_aqua"},{"text":"!","color":"aqua"}]
-	
+
 		#Cat (Type 2)
 	tag @a[scores={bookTrigger=12,disguiseType=2}] add noDisguiseType
 	scoreboard players set @a[tag=noDisguiseType] disguiseType 0

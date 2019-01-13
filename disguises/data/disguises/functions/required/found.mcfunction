@@ -1,3 +1,7 @@
+#
+#@s - as @a if score @s ID = #searchCurrent ID
+#called by disguises:required/search
+
 #When player online
 scoreboard players set #found ID 1
 
@@ -9,7 +13,7 @@ tag @e[tag=disguiseMob,tag=ID,scores={ID=-1}] add tpTick
 tag @s add tpTickPlayer
 
 #Commands for current player and disguiseMob
-	
+
 	#Teleport
 	tp @e[tag=ID,tag=disguiseMob,tag=tpTick] @s[tag=disguise,scores={disguise=0}]
 		#Offset
@@ -35,19 +39,19 @@ tag @s add tpTickPlayer
 		execute at @s[tag=disguise,tag=disguiseOffset,scores={disguise=0,disguiseType=37}] rotated ~ 0 run tp @e[tag=ID,tag=disguiseMob,tag=tpTick] ^ ^ ^-.3
 		execute at @s[tag=disguise,tag=disguiseOffset,scores={disguise=0,disguiseType=38}] rotated ~ 0 run tp @e[tag=ID,tag=disguiseMob,tag=tpTick] ^ ^ ^-.3
 		execute at @s[tag=disguise,tag=disguiseOffset,scores={disguise=0,disguiseType=39}] rotated ~ 0 run tp @e[tag=ID,tag=disguiseMob,tag=tpTick] ^ ^ ^-.4
-		
-	
+
+
 	#Disguise name
 	execute as @s[tag=disguise,tag=noDisguiseName,scores={disguise=0}] run data merge entity @e[tag=tpTick,tag=disguiseMob,tag=ID,limit=1] {CustomNameVisible:0b}
 	execute as @s[tag=disguise,tag=noDisguiseName,scores={disguise=0}] run data merge entity @e[tag=tpTick,tag=disguiseMob,tag=ID,limit=1] {CustomName:""}
 	execute as @s[tag=disguise,tag=!noDisguiseName,scores={disguise=0}] run data merge entity @e[tag=tpTick,tag=disguiseMob,tag=ID,limit=1] {CustomNameVisible:1b}
 	execute as @s[tag=disguise,tag=!noDisguiseName,scores={disguise=0}] run data merge block 0 0 0 {Text2:"{\"selector\":\"@a[tag=disguise,scores={disguise=0},tag=!noDisguiseName,tag=tpTickPlayer]\"}"}
 	execute as @s[tag=disguise,tag=!noDisguiseName,scores={disguise=0}] run execute as @e[tag=disguiseMob,tag=ID,tag=tpTick] run data modify entity @s CustomName set from block 0 0 0 Text2
-	
+
 	#Change disguise trigger
 	tag @s[tag=disguiseTypeD] add disguiseOff
 	scoreboard players set @s[tag=disguiseTypeD] disguise 1
-	
+
 	#Disguise off
 	tag @s[tag=disguiseOff] remove disguise
 	execute at @s[tag=disguiseOff] run tag @e[tag=ID,tag=disguiseMob,tag=tpTick] add disguiseRemove
@@ -56,7 +60,7 @@ tag @s add tpTickPlayer
 	effect clear @s[tag=disguiseOff] minecraft:invisibility
 	tellraw @s[tag=disguiseOff,tag=!disguiseTypeD] ["",{"text":"Undisguised!","color":"dark_aqua"}]
 	tag @s[tag=disguiseOff] remove disguiseOff
-	
+
 #Reset
 scoreboard players operation @e[scores={ID=-1}] ID = #tpCurrent ID
 tag @e[tag=disguiseMob,tag=ID] remove tpTick
