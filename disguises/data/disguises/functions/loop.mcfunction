@@ -1,0 +1,1 @@
+execute as @a[gamemode=creative,tag=setupDisguises] run function disguises:setup
